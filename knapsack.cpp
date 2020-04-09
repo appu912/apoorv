@@ -1,42 +1,35 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
+typedef pair<int , int> ii;
+typedef pair<double , ii> dii;
+typedef vector<dii> vdii;
 
-class knapsack {
-		
-	public:
-		
-		static bool sort_by_sec(const pair<int , double> &a , const pair<int , double> &b) {
-			return a.second > b.second;
-		}
-		
-		double maximum_cost(vector<int> p , vector<int> w , int m , int n) {
-			double profit = 0.0;
-			int i = 0;
-			vector<pair<int , double>> profit_per_object;
-			for(i = 0 ; i < n ; ++i) 
-				profit_per_object.push_back(make_pair(i , (double)p[i] / (double)w[i]));
-			sort(profit_per_object.begin() , profit_per_object.end() , sort_by_sec);
-			for(i = 0 ; i < n ; ++i) {
-				if(m > 0 && w[profit_per_object[i].first] <= m) {
-					m -= w[profit_per_object[i].first];
-					profit += p[profit_per_object[i].first];
-				} else break;
-			}
-			if(m > 0) profit += p[profit_per_object[i].first] * ((double)m / (double)w[profit_per_object[i].first]);
-			return profit;
-			}
-};
-
-int main(int argc , char **argv) {
-	knapsack ob;
+int main(int arg , char**argc) {
 	int m = 0 , n = 0;
+	double profit = 0;
+	vdii input;
 	cin >> m >> n;
-	vector<int> p(n);
-	vector<int> w(n);
-	for(int i = 0 ; i < n ; ++i) cin >> p[i];
-	for(int i = 0 ; i < n ; ++i) cin >> w[i];
-	cout << ob.maximum_cost(p , w , m , n) << endl;
+	input.assign(n , dii());
+	for(int i = 0 ; i < n ; i++) {
+		cin >> input[i].second.first;
+	}
+	for(int i = 0 ; i < n ; i++) {
+		cin >> input[i].second.second;
+	}
+	for(int i = 0 ; i < n ; i++) {
+		input[i].first = (double)input[i].second.first / input[i].second.second;
+	}
+	sort(input.begin() , input.end());
+	int i;
+	for(i = n - 1 ; i >= 0 ; i--) {
+		if(m > 0 && input[i].second.second <= m) {
+			profit += input[i].second.first;
+			m -= input[i].second.second;
+		}
+		else break;
+	}
+	if(m > 0) profit += ((double)input[i].second.first * m / input[i].second.second);
+	cout << profit << endl;
 	return 0;
 }
-
