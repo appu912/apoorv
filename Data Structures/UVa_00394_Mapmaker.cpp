@@ -20,6 +20,7 @@ typedef vector<double> vd;
 typedef vector<string> vs;
 typedef vector<ii> vii;
 typedef vector<iii> viii;
+typedef unordered_map<string , int> umsi;
 
 //To store the data of each array.
 struct Array {
@@ -32,7 +33,7 @@ struct Array {
 };
 
 vector<Array> arrays; // To store N inputted arrays
-unordered_map<string , int> umap; // To map N array_names to the respective array in 'arrays'.
+umsi umap; // To map N array_names to the respective array in 'arrays'.
 	
 int main(int argc, char **argv) {
 	int N = 0 , R = 0 , x = 0;
