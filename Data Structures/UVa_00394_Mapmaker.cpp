@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
 	char name[20];
 	scanf("%d%d" , &N , &R);
 	struct Array arr = {};
-  // This loop will take O(N) time. 
+  	// This loop will take O(N) time. 
 	for(int i = 0 ; i < N ; i++) { // O(N)
 		scanf("%s%d%d%d" , name , &(arr.B) , &(arr.size) , &(arr.D));
 		for(int d = 1 ; d <= arr.D ; d++) { // O(D) = O(1)
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
 	}
 	memset(name , 0 , sizeof name); // O(10) = O(1)
 	ll address = 0;
-  // This loop will take O(N) time.
+  	// This loop will take O(N) time.
 	for(int i = 0 ; i < R ; i++) { // O(R) = O(N) if R = N
 		scanf("%s" , name);
 		int index = umap[name]; // O(1)
