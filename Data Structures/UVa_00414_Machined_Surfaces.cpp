@@ -27,18 +27,18 @@ typedef unordered_map<string , int> umsi;
 int len_x = 0 , len_y = 0 , N = 0; 
 char x[30] , y[30];
 vi v;
-												  // This code takes O(no. of inputs)
+// This code takes O(no. of inputs)
 int main(int argc, char **argv) {
-	while(scanf("%d" , &N) , N) {                 // O(no. of inputs)
+	while(scanf("%d" , &N) , N) { // O(no. of inputs)
 		scanf("\n"); v.assign(N , 0);
-		for(int i = 0 ; i < N ; i++) {			  // O(N) = O(13)
+		for(int i = 0 ; i < N ; i++) { // O(N) = O(13)
 			scanf("%s" , x); len_x = strlen(x);
 			if(len_x < 25) scanf("%s" , y); 
 			else y[0] = 0;
 			len_y = strlen(y);
 			v[i] = len_x + len_y;
 		}
-		int max = *max_element(ALL(v));            // O(N) = O(13)
+		int max = *max_element(ALL(v)); // O(N) = O(13)
 		int sum = 0;
 		for(int a : v) { sum += (max - a); }
 		printf("%d\n" , sum); v.clear();
