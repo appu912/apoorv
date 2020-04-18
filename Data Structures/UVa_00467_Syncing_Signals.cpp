@@ -44,11 +44,8 @@ int main(int argc, char **argv) {
 	string n = ""; bool flag;
 	generate();
 	while(scanf(" %[^\n]" , str) != EOF) { 
-		for(int i = 0 ; i < int(strlen(str)) - 1 ; i += 3) {
-			n.push_back(str[i]); n.push_back(str[i + 1]);
-			stringstream ss(n); int x = 0; ss >> x;
-			v.push_back(x); n.clear();
-		}
+		stringstream ss(str); int x = 0; 
+		while(ss >> x) v.push_back(x); 
 		int i , len = v.size();
 		int min = *min_element(ALL(v));
 		for(time = min - 4 ; time <= 3600 ; ++time) {
