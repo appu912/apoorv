@@ -1,6 +1,5 @@
 /*
- * UVa-00256 Quirksome Squares
- * O(no. of inputs) Solution
+ * UVa-11001 Necklace
  * 
  */
 #include <bits/stdc++.h>
