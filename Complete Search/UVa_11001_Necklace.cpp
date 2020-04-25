@@ -1,5 +1,6 @@
 /*
- * UVa-11001 Necklace
+ * UVa-00256 Quirksome Squares
+ * O(no. of inputs) Solution
  * 
  */
 #include <bits/stdc++.h>
@@ -41,7 +42,7 @@ int main(int argc, char **argv) {
 	double D = 0.0 , length = 0.0; 
 	while(scanf("%d %d" , &V_total , &V_0) , V_total | V_0) {
 		D = length = 0.0;
-		for(n = 1 ; n < V_total ; ++n) {
+		for(n = 1 ; (V_total / (double)n >= V_0) && n < V_total ; ++n) {
 			D = diameter(V_total / (double)n);
 			v.pb(n * D);
 		}
